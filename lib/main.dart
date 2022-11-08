@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_with_api/app/modules/home/provider/home_provider.dart';
+import 'package:provider_with_api/app/modules/home/view/home.dart';
 
 import 'app/screens/home_page.dart';
 
@@ -18,11 +19,12 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (create)=> HomeProvider()),
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: MyHomePage(),
+        home: Home(),
       ),
     );
   }
