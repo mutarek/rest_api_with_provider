@@ -27,11 +27,17 @@ class _HomeState extends State<Home> {
       ),
       body: Consumer<HomeProvider>(
         builder: (context,value,child){
+          final data = value.homeModel.data;
           return ListView.builder(
-            itemCount: value.homeModel.data!.length,
+            itemCount: data!.length,
             itemBuilder: (_,index){
+              final singledata = data[index];
               return ListTile(
-                title: Text(value.homeModel.data![index].email.toString()),
+                title: Text(singledata.email.toString()),
+                leading: CircleAvatar(
+                  radius: 50,
+                  backgroundImage: NetworkImage(singledata.avatar.toString()),
+                ),
               );
             },
           );
